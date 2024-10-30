@@ -1,0 +1,135 @@
+<!--
+author: W3layouts
+author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>OEunion Dental Care Medical Category Flat Bootstrap Responsive Website Template | Contact :: W3layouts</title>
+    <!-- for-mobile-apps -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Dental Health Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+
+    <!-- css files -->
+    <link href="assets/css/bootstrap.css" rel='stylesheet' type='text/css' /><!-- bootstrap css -->
+    <link href="assets/css/style.css" rel='stylesheet' type='text/css' /><!-- custom css -->
+    <link href="assets/css/font-awesome.min.css" rel="stylesheet"><!-- fontawesome css -->
+    <!-- //css files -->
+
+    <!-- google fonts -->
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700,800&amp;subset=latin-ext" rel="stylesheet">
+    <!-- //google fonts -->
+
+</head>
+<body>
+
+<!-- top header -->
+<div th:replace="~{topheader :: header-top}"></div>
+<!-- //top header -->
+
+<!-- //header -->
+<div th:replace="~{header :: header}"></div>
+<!-- //header -->
+
+<!-- banner -->
+<div class="innerpage-banner" id="home">
+    <div class="inner-page-layer">
+    </div>
+</div>
+<!-- //banner -->
+
+<!-- contact -->
+<section class="mail pt-lg-5 pt-4">
+    <div class="container pt-lg-5">
+        <h2 class="heading text-center mb-sm-5 mb-4">Contact Us </h2>
+        <div class="row agileinfo_mail_grids">
+            <div class="col-lg-8 agileinfo_mail_grid_right">
+                <form th:action="@{/saveMsg}" method="post" class="signin-form">
+                    <div class="input-grids">
+                        <div class="row">
+                        <div class="col-md-6 wthree_contact_left_grid pr-md-0">
+                            <div class="form-group">
+                                <input type="text" name="name" id="name" placeholder="Name" required="">
+                            </div>
+                            <div class="form-group">
+                                <input type="email" name="email" id="email" placeholder="Email" required="">
+                            </div>
+                        </div>
+                        <div class="col-md-6 wthree_contact_left_grid">
+                            <div class="form-group">
+                                <input type="text" name="phoneNumber" id="phoneNumber" placeholder="Phone Number" required="">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="subject" id="subject" placeholder="Subject" required="">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <textarea name="message" id="message" placeholder="Type your message here" required=""></textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="submit-buttons">
+                                <button type="submit" class="btn">Submit</button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-lg-4 col-md-6 mt-lg-0 mt-4 contact-info">
+                <h4 class="mb-4">Address Information</h4>
+                <p><span class="fa mr-2 fa-map-marker"></span>825 N 22nd Street, suit 206 <span>Milwaukee, WI.</span></p>
+                <p class="phone py-2"><span class="fa mr-2 fa-phone"></span>Phone : +1 414 364 8000 </p>
+                <p><span class="fa mr-2 fa-envelope"></span>Email : <a href="mailto:info@example.com">info@oeuniondental.com</a></p>
+
+                <h4 class="my-4">Book Your Appointment</h4>
+                <p class="phone"><span class="fa mr-2 fa-phone"></span>Call us at +1 414 364 8000
+
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="map mt-5">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5832.052625439602!2d-87.94340212354554!3d43.
+        04087787113779!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88051bd320be8365%3A0x8f7e85eb6f75a230!
+        2s825%20N%2022nd%20St%2C%20Milwaukee%2C%20WI%2053233!5e0!3m2!1sen!2sus!4v1730179025485!5m2!1sen!2sus"
+                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy=
+                        "no-referrer-when-downgrade">
+
+        </iframe>
+    </div>
+</section>
+<!-- //contact -->
+
+<!-- footer -->
+<div th:replace="~{footer :: footer}"></div>
+<!-- //footer -->
+
+
+
+<!-- move top -->
+<div class="move-top text-right">
+    <a href="#home" class="move-top">
+        <span class="fa fa-angle-up  mb-3" aria-hidden="true"></span>
+    </a>
+</div>
+<!-- move top -->
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+</head>
+
+<body>
+
+<!-- //header -->
+<header class="py-3">
+    <div class="container">
+        <div id="logo">
+            <h1> <a th:href="@{/home}"><span class="fa fa-stethoscope" aria-hidden="true"></span> OEunion Dental Care</a></h1>
+        </div>
+        <!-- nav -->
+        <nav class="d-lg-flex">
+
+            <label for="drop" class="toggle"><span class="fa fa-bars"></span></label>
+            <input type="checkbox" id="drop" />
+            <ul class="menu mt-2 ml-auto">
+                <li class="active"><a th:href="@{/home}">Home</a></li>
+                <li class=""><a th:href="@{/about}">About Us</a></li>
+                <li class=""><a th:href="@{/services}">Services</a></li>
+                <li class=""><a th:href="@{/gallery}">Gallery</a></li>
+                <!-- <li class=""><a th:href="@{/blog}">Blog</a></li> -->
+                 <li class=""><a th:href="@{/contact}">Contact Us</a></li>
+             </ul>
+             <div class="login-icon ml-2">
+                 <a class="user" th:href="@{/contact}"> Book Now</a>
+             </div>
+         </nav>
+         <div class="clear"></div>
+         <!-- //nav -->
+    </div>
+</header>
+<!-- //header -->
+</body>
+</html>
