@@ -1,0 +1,163 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    background: #f0f0f5;
+}
+
+.login-container {
+    background: #ffffff;
+    width: 350px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.logo img {
+    width: 60px;
+    height: 60px;
+}
+
+.logo h1 {
+    font-size: 24px;
+    color: #333;
+}
+
+.logo p {
+    font-size: 14px;
+    color: #888;
+}
+
+.tab-container {
+    display: flex;
+    align-items: center;
+    margin: 15px 0;
+}
+
+.tab {
+    flex: 1;
+    padding: 10px;
+    cursor: pointer;
+    background-color: #eee;
+    color: #333;
+    border-radius: 5px 5px 0 0;
+}
+
+.login-tab {
+    background-color: #0066cc;
+    color: #ffffff;
+}
+
+.or {
+    margin: 0 10px;
+    color: #333;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.icon {
+    margin-right: 10px;
+}
+
+input[type="text"],
+input[type="password"] {
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 14px;
+    background: transparent;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    margin: 10px 0;
+    color: #333;
+}
+
+.remember-me input {
+    margin-right: 5px;
+}
+
+.social-login {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.facebook,
+.twitter {
+    border: none;
+    color: #fff;
+    padding: 8px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.facebook {
+    background-color: #3b5998;
+}
+
+.twitter {
+    background-color: #1da1f2;
+}
+
+.login-button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    color: #fff;
+    background-color: #0066cc;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.forgot-password {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #888;
+    cursor: pointer;
+}
+
+.forgot-password:hover {
+    color: #0066cc;
+}
+.alert {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #f5c6cb;
+    border-radius: 5px;
+}
+
+/* Success message style (for logout success) */
+.alert-success {
+    background-color: #28a745; /* Green background */
+    color: #ffffff; /* White text */
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #218838; /* Darker green border */
+    border-radius: 5px;
+}

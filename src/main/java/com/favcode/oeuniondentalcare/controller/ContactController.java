@@ -36,7 +36,9 @@ public class ContactController{
             log.error("Contact from validation failed due to : " + errors.toString());
             return "contact.html";
         }
-       contactService.saveMessageDetails(contact);
+        contactService.saveMessageDetails(contact);
+        contactService.setCounter(contactService.getCounter()+1);
+        log.info("Number of times contact form is submitted: " + contactService.getCounter());
        return "redirect:/contact";
    }
 }

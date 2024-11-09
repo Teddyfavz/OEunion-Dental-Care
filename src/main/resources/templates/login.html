@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dental Login</title>
+  <link rel="stylesheet" href="assets/css/login.css">
+
+
+</head>
+<body>
+
+<div class="login-container">
+  <div class="logo">
+    <a th:href = "@{/home}">
+    <img src="assets/images/logo.png" alt="Dental Logo">
+    <h1>OEunion Dental Care</h1>
+    </a>
+    <p>Healthy Smiles for Life</p>
+  </div>
+  <div class="tab-container">
+    <a th:href="@{/login}" class="tab login-tab">Login</a>
+    <div class="or">OR</div>
+    <a th:href="@{Register}" class="tab register-tab">Register</a>
+  </div>
+  <form action="/login" method="post" class="signin-form">
+    <div class="input-group">
+      <span class="icon">👤</span>
+      <input type="text" name= "username" id="username" placeholder="Username" class="login-input">
+    </div>
+    <div class="input-group">
+      <span class="icon">🔒</span>
+      <input type="password" name="password" id="password" placeholder="Password" class="login-input">
+    </div>
+    <!-- Error Message Section -->
+    <div th:if="${errorMessage}" class="alert alert-danger">
+      <p th:text="${errorMessage}"></p>
+    </div>
+    <!-- Logout Success Message -->
+    <div th:if="${logoutMessage}" class="alert alert-success">
+      <p th:text="${logoutMessage}">Successfully logged out!</p>
+    </div>
+
+    <button type="submit" class="login-button">LOG IN</button>
+
+  </form>
+</div>
+</body>
+</html>
