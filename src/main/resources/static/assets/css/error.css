@@ -1,0 +1,109 @@
+/* Basic reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: url(/assets/images/error.webp);
+  background-size: cover;
+  color: #fff;
+}
+
+/* Header Section */
+.error-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1000px;
+  padding: 10px 20px;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.branding {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.social-icons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.social-icons span {
+  font-size: 0.9em;
+  margin-right: 8px;
+}
+
+.social-icons a {
+  color: #fff;
+  font-size: 1.1em;
+}
+
+.notify-button {
+  background-color: #ff7b54;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: background-color 0.3s;
+}
+
+.notify-button:hover {
+  background-color: #ff9b74;
+}
+
+/* Error Block Section */
+.page_404 {
+  text-align: center;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 30px;
+  border-radius: 8px;
+  max-width: 700px;
+  width: 90%;
+}
+
+.page_404 .content h1 {
+  font-size: 4em;
+  color: #e0a96d;
+  margin-bottom: 10px;
+}
+
+.page_404 .content h2 {
+  font-size: 1.8em;
+  margin-bottom: 10px;
+}
+
+.page_404 .content p {
+  font-size: 1.2em;
+  color: #ddd;
+  margin-bottom: 20px;
+}
+
+.home-button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 1em;
+  color: #fff;
+  background-color: #e0a96d;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.home-button:hover {
+  background-color: #ff9b74;
+}
