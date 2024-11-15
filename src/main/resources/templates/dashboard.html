@@ -1,125 +1,145 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OEunion Dental Dashboard</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/dashboard.css" rel='stylesheet'/>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script> <!-- Font Awesome Icons -->
+
     <style>
         body {
             font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
         }
         .navbar {
-            background-color: #4CAF50;
+            background-color: #004e89;
+            color: white;
         }
+        .navbar-brand {
+            font-weight: bold;
+        }
+        /* Adjust sidebar to be horizontal */
         .sidebar {
-            height: 100vh;
-            width: 250px;
-            background-color: #f8f9fa;
-            position: fixed;
+            background-color: #fff;
+            position: sticky;
             top: 0;
             left: 0;
-            padding-top: 20px;
-            padding-right: 15px;
+            padding: 10px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .sidebar-header {
+            font-weight: bold;
+            font-size: 1.2em;
+            color: #004e89;
+            margin-right: 30px;
         }
         .sidebar a {
             text-decoration: none;
-            display: block;
-            padding: 10px;
+            display: inline-flex;
+            align-items: center;
+            padding: 10px 15px;
             color: #333;
             font-weight: bold;
+            transition: background-color 0.3s, color 0.3s;
+            margin-right: 15px; /* Space out links */
         }
         .sidebar a:hover {
-            background-color: #4CAF50;
+            background-color: #004e89;
             color: white;
         }
+        .sidebar i {
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
         .main-content {
-            margin-left: 260px;
+            margin-top: 70px; /* Offset the navbar */
             padding: 20px;
         }
         .card {
             margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .notification-card {
+            border-left: 5px solid #ffcc00;
+            padding: 15px;
+        }
+        .alert-card {
+            border-left: 5px solid #ff6347;
+            padding: 15px;
         }
     </style>
 </head>
 
 <body>
+
 <!-- Navigation Bar -->
-<nav class="navbar navbar-expand-lg navbar-light">
-    <a class="navbar-brand text-white" href="#">OEunion Dental Care</a>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-                <a class="nav-link text-white" href="#">Profile</a>
-            </li>
-            <li class="nav-item">
-                <a th:href="@{/logout}" class="nav-link text-white">Logout</a>
-            </li>
-        </ul>
-    </div>
+<nav class="navbar navbar-expand-lg">
+    <a class="navbar-brand ms-3 text-white" th:href="@{/dashboard}">OEunion Dental Care</a>
 </nav>
 
-<!-- Sidebar -->
-<div class="sidebar">
-    <a href="#">Dashboard</a>
-    <a href="#">Appointments</a>
-    <a href="#">Treatment History</a>
-    <a href="#">Prescriptions</a>
-    <a href="#">Billing</a>
-    <a href="#">Settings</a>
+<!-- Horizontal Sidebar -->
+<div class="sidebar d-flex justify-content-start align-items-center">
+
+    <a th:href="@{/dashboard}"><i class="fas fa-tooth"></i> Dashboard</a>
+    <a th:href="@{/profile}"><i class="fas fa-user-md"></i> Patient Profile</a>
+    <a th:href="@{/logout}"><i class="fas fa-sign-out-alt"></i> Logout</a>
 </div>
 
 <!-- Main Content -->
 <div class="main-content">
     <div class="container">
         <div class="row">
-            <!-- Welcome Section -->
             <div class="col-12">
-                <h3 class="title-style" th:text="${'Welcome - ' + username}"></h3>
-                <p class="" th:text="${'You logged in as - ' + roles}"></p>
+                <h3 class="mt-4" th:text="${'Welcome to Your Dental Dashboard, ' + username}"></h3>
+                <p th:text="${'Logged in as ' + roles}"></p>
             </div>
-
-            <!-- Upcoming Appointments -->
-            <div class="col-12 col-md-6">
-                <div class="card">
-                    <div class="card-header">
-                        Upcoming Appointments
-                    </div>
-                    <div class="card-body">
-                        <ul>
-                            <li>Checkup - <strong>Nov 15, 2024</strong> at 10:00 AM</li>
-                            <li>Cleaning - <strong>Dec 2, 2024</strong> at 2:00 PM</li>
-                        </ul>
-                    </div>
+            <!-- Dashboard Quick Actions -->
+            <div class="col-12 d-flex flex-wrap justify-content-around my-4">
+                <a th:href="@{/appointment}" class="btn btn-outline-primary m-2" style="width: 120px;">
+                    <i class="fas fa-calendar-plus fa-2x"></i><br>Schedule Visit
+                </a>
+                <div class="btn btn-outline-primary m-2" sec:authorize="hasRole('ROLE_ADMIN')">
+                <a th:href="@{/displayMessages}">
+                    <i class="fas fa-x-ray fa-2x"></i><br>Messages
+                </a>
                 </div>
-            </div>
-
-            <!-- Recent Treatments -->
-            <div class="col-12 col-md-6">
-                <div class="card">
-                    <div class="card-header">
-                        Recent Treatments
-                    </div>
-                    <div class="card-body">
-                        <ul>
-                            <li>Root Canal - <strong>Oct 10, 2024</strong></li>
-                            <li>Teeth Whitening - <strong>Sept 5, 2024</strong></li>
-                        </ul>
-                    </div>
-                </div>
+                <a th:href="@{/cleanings}" class="btn btn-outline-primary m-2" style="width: 120px;">
+                    <i class="fas fa-tooth fa-2x"></i><br>Cleanings
+                </a>
+                <a th:href="@{/billing}" class="btn btn-outline-primary m-2" style="width: 120px;">
+                    <i class="fas fa-file-invoice fa-2x"></i><br>Billing
+                </a>
             </div>
 
             <!-- Notifications -->
             <div class="col-12">
-                <div class="card">
-                    <div class="card-header">
-                        Notifications
-                    </div>
+                <div class="notification-card mb-3">
+                    <strong>Dental Cleaning Due</strong><br>
+                    Your dental cleaning is due on <strong>Nov 15, 2024</strong>. Please schedule your appointment to keep your teeth in top condition.
+                    <a href="#" class="float-end text-primary">Schedule Now</a>
+                </div>
+                <div class="alert-card mb-3">
+                    <strong>Fluoride Treatment Available</strong><br>
+                    Protect your enamel with our fluoride treatments. Available on request during your next visit.
+                    <a href="#" class="float-end text-primary">Learn More</a>
+                </div>
+                <div class="notification-card mb-3">
+                    <strong>New X-Ray Images Ready</strong><br>
+                    Your recent X-rays are available for review in the X-Ray section.
+                    <a href="@{/xRays}" class="float-end text-primary">View X-Rays</a>
+                </div>
+            </div>
+
+            <!-- Explore More Section -->
+            <div class="col-12">
+                <div class="card mt-4">
                     <div class="card-body">
-                        <ul>
-                            <li>Your dental checkup is scheduled for <strong>Nov 15, 2024</strong>.</li>
-                            <li>Don’t forget your teeth cleaning appointment on <strong>Dec 2, 2024</strong>.</li>
-                        </ul>
+                        <h5>Explore More</h5>
+                        <a href="#" class="btn btn-outline-primary mt-2">Invite Friends & Family</a>
+                        <a href="#" class="btn btn-outline-primary mt-2">Dental Care Tips</a>
                     </div>
                 </div>
             </div>
@@ -127,8 +147,9 @@
     </div>
 </div>
 
-<!-- Bootstrap JS (Optional for responsiveness) -->
+<!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
 </body>
 </html>
