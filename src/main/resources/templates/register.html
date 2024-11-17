@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dental Registration</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .register-container {
+            width: 400px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            text-align: center;
+        }
+        .logo {
+            margin-bottom: 20px;
+        }
+        .logo img {
+            width: 50px;
+        }
+        .logo h1 {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 10px 0;
+            color: black;
+        }
+        .logo p {
+            font-size: 14px;
+            color: #555;
+        }
+        .tab-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 20px 0;
+        }
+        .tab-container a {
+            flex: 1;
+            text-align: center;
+            text-decoration: none;
+            font-size: 14px;
+            color: #007bff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+        }
+        .tab-container a.active {
+            background: #007bff;
+            color: #fff;
+            font-weight: bold;
+        }
+        .tab-container .or {
+            margin: 0 10px;
+            font-size: 14px;
+            color: #555;
+        }
+        .register-form {
+            margin-top: 20px;
+            text-align: left;
+        }
+        .register-form .input-group {
+            position: relative;
+            margin-bottom: 15px;
+        }
+        .register-form .input-group input {
+            width: 100%;
+            padding: 10px 10px 10px 30px; /* Space for the icon on the left */
+            font-size: 14px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .register-form .input-group .icon {
+            position: absolute;
+            top: 50%;
+            left: 10px; /* Position the icon to the left */
+            transform: translateY(-50%);
+            font-size: 16px;
+            color: #aaa;
+            pointer-events: none; /* Prevent the icon from blocking user input */
+        }
+        .register-form .error-message {
+            color: red;
+            font-size: 12px;
+            margin-top: -10px;
+            margin-bottom: 10px;
+        }
+        .register-button {
+            width: 100%;
+            padding: 10px;
+            background: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .register-button:hover {
+            background: #0056b3;
+        }
+
+        .register-container {
+    width: 400px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    text-align: center;
+}
+
+.register-form .input-group input {
+    width: 100%;  /* 100% width is removed, adjust to specific value */
+    max-width: 300px;  /* Limit the width of input fields */
+    padding: 8px 10px 8px 30px;  /* Reduce padding to make input more compact */
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.register-form .input-group {
+    position: relative;
+    margin-bottom: 15px;
+    text-align: left;
+    width: 100%;
+    display: flex;
+    justify-content: center;  /* Center the inputs in their container */
+}
+
+.register-form .input-group input {
+    max-width: 280px; /* Adjust width further if needed */
+}
+    </style>
+</head>
+<body>
+<div class="register-container">
+    <div class="logo">
+        <a th:href="@{/home}">
+            <img th:src="@{/assets/images/logos.png}" alt="Dental Logo">
+            <h1>OEunion Dental Care</h1>
+        </a>
+        <p>Healthy Smiles for Life</p>
+    </div>
+    <div class="tab-container">
+        <a href="/login">Login</a>
+        <div class="or">OR</div>
+        <a href="/register" class="active">Register</a>
+    </div>
+    <ul>
+        <li class="alert alert-danger" role="alert" th:each="error : ${#fields.errors('person.*')}" th:text="${error}" />
+    </ul>
+    <form th:action="@{/public/createUser}" method="post" class="register-form" th:object="${person}">
+        <div class="input-group">
+            <input type="text" th:field="*{name}" placeholder="Name" required>
+            <span class="icon">👤</span>
+
+        </div>
+        <div class="input-group">
+            <input type="text" th:field="*{mobileNumber}" placeholder="Mobile Number" required>
+            <span class="icon">📱</span>
+
+        </div>
+        <div class="input-group">
+            <input type="email" th:field="*{email}" placeholder="Email" required>
+            <span class="icon">📧</span>
+
+        </div>
+        <div class="input-group">
+            <input type="email" th:field="*{confirmEmail}" placeholder="Confirm Email" required>
+            <span class="icon">📧</span>
+
+        </div>
+        <div class="input-group">
+            <input type="password" th:field="*{pwd}" placeholder="Password" required>
+            <span class="icon">🔒</span>
+
+        </div>
+        <div class="input-group">
+            <input type="password" th:field="*{confirmPwd}" placeholder="Confirm Password" required>
+            <span class="icon">🔒</span>
+
+        </div>
+        <button type="submit" class="register-button">REGISTER</button>
+    </form>
+</div>
+</body>
+</html>

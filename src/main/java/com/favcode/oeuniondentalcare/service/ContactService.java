@@ -17,9 +17,6 @@ public class ContactService {
     @Autowired
     private ContactRepository contactRepository;
 
-    public ContactService() {
-        System.out.println("Contact Service Bean initialized");;
-    }
 
     public boolean saveMessageDetails(Contact contact){
         boolean isSaved = false;
