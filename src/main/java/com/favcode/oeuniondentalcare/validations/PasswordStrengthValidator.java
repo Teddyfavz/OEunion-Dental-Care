@@ -3,8 +3,6 @@ package com.favcode.oeuniondentalcare.validations;
 import com.favcode.oeuniondentalcare.annotation.PasswordValidator;
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
-
-import java.lang.annotation.Annotation;
 import java.util.Arrays;
 import java.util.List;
 
